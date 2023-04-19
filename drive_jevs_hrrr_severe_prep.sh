@@ -8,7 +8,9 @@
 now=`date -u +%Y%m%d%H`
 hh=`echo $now | cut -c 9-10`
 
-cd /lfs/h2/emc/ptmp/logan.dawson/cron.out
+mkdir -p /lfs/h2/emc/ptmp/${USER}/cron.out
+cd /lfs/h2/emc/ptmp/${USER}/cron.out
+
 module reset
 
 if [ $hh -lt 06 ]; then

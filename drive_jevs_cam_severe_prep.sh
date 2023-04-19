@@ -8,7 +8,9 @@
 now=`date -u +%Y%m%d%H`
 vhr=`echo $now | cut -c 9-10`
 
-cd /lfs/h2/emc/ptmp/logan.dawson/cron.out
+mkdir -p /lfs/h2/emc/ptmp/${USER}/cron.out
+cd /lfs/h2/emc/ptmp/${USER}/cron.out
+
 module reset
 
 qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_cam_severe_prep.ecf

@@ -13,7 +13,6 @@ cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-vhr=19
 qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_cam_radar_prep.ecf
 
 exit

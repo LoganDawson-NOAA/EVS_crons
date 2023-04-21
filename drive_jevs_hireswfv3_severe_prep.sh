@@ -17,6 +17,9 @@ if [ $hh -lt 12 ]; then
    vhr=00
 elif [ $hh -gt 12 ]; then
    vhr=12
+else
+   echo "cyc will not be defined correctly. Exiting."
+   exit
 fi
 
 qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_hireswfv3_severe_prep.ecf

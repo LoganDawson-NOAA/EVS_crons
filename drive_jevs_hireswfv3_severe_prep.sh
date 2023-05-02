@@ -15,7 +15,7 @@ module reset
 
 if [ $hh -lt 12 ]; then
    vhr=00
-elif [ $hh -gt 12 ]; then
+elif [ $hh -ge 12 ]; then
    vhr=12
 else
    echo "cyc will not be defined correctly. Exiting."

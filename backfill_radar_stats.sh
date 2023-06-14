@@ -13,7 +13,7 @@ cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-HOMEevs=/lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/cam_severe_stats_EVS
+HOMEevs=/lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/radar_svr_stats_EVS
 
 export VDATE=20230504
 vhr=15

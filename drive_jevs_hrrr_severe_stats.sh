@@ -14,7 +14,7 @@ module reset
 
 vhr=12
 
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/cam_severe_stats_EVS/ecf/cam/stats/jevs_hrrr_severe_stats.ecf
+qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/radar_svr_stats_EVS/ecf/scripts/cam/stats/jevs_hrrr_severe_stats.ecf
 
 exit
 

@@ -13,7 +13,7 @@ cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/cam_severe_stats_EVS/ecf/cam/stats/jevs_href_radar_stats.ecf
+qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/radar_svr_stats_EVS/ecf/scripts/cam/stats/jevs_href_radar_stats.ecf
 
 exit
 

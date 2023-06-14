@@ -15,23 +15,10 @@ module reset
 
 export VDATE=20230504
 vhr=15
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_cam_radar_prep.ecf
+qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/scripts/cam/prep/jevs_cam_radar_prep.ecf
 sleep 3
 
-vhr=17
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_cam_radar_prep.ecf
-sleep 3
-
-vhr=18
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_cam_radar_prep.ecf
-sleep 3
-
-vhr=19
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_cam_radar_prep.ecf
-sleep 3
-
-vhr=20
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_cam_radar_prep.ecf
+qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/scripts/cam/prep/jevs_cam_radar_prep.ecf
 sleep 3
 
 exit

@@ -22,7 +22,7 @@ else
    exit
 fi
 
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/cam/prep/jevs_hireswarw_severe_prep.ecf
+qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/scripts/cam/prep/jevs_hireswarw_severe_prep.ecf
 
 exit
 

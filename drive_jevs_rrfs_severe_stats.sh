@@ -6,15 +6,22 @@
 ###########################################################
 
 now=`date -u +%Y%m%d%H`
+vhr=`echo $now | cut -c 9-10`
 
 mkdir -p /lfs/h2/emc/ptmp/${USER}/cron.out
 cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-vhr=12
+models="rrfs"
 
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/radar_svr_stats_EVS/ecf/scripts/cam/stats/jevs_rrfs_severe_stats.ecf
+for model in ${models}; do
+
+   qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/radar_svr_stats_EVS/ecf/scripts/cam/stats/jevs_${model}_severe_stats.ecf
+
+   sleep 60
+
+done
 
 exit
 

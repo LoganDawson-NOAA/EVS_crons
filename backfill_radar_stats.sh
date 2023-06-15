@@ -13,57 +13,26 @@ cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-HOMEevs=/lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/radar_svr_stats_EVS
+HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
-export VDATE=20230504
-vhr=15
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarw_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarwmem2_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswfv3_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_href_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hrrr_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_namnest_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_rrfs_radar_stats.ecf
-sleep 10
+models="hireswarw hireswarwmem2 hireswfv3 href hrrr namnest rrfs"
+models="href"
 
-vhr=17
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarw_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarwmem2_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswfv3_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_href_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hrrr_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_namnest_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_rrfs_radar_stats.ecf
-sleep 10
 
-vhr=18
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarw_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarwmem2_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswfv3_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_href_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hrrr_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_namnest_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_rrfs_radar_stats.ecf
-sleep 10
+export VDATE=20230612
+vhrs="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
+vhrs="23"
 
-vhr=19
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarw_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarwmem2_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswfv3_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_href_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hrrr_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_namnest_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_rrfs_radar_stats.ecf
-sleep 10
+for vhr in $vhrs; do
+   for model in ${models}; do
 
-vhr=20
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarw_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswarwmem2_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hireswfv3_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_href_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_hrrr_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_namnest_radar_stats.ecf
-qsub -v cyc=$vhr ${HOMEevs}/ecf/cam/stats/jevs_rrfs_radar_stats.ecf
-sleep 10
+      qsub -v cyc=$vhr ${HOMEevs}/ecf/scripts/cam/stats/jevs_${model}_radar_stats.ecf
+      sleep 5
+
+
+   done
+   sleep 15
+done
+
 
 exit

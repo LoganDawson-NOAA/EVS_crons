@@ -26,7 +26,7 @@ vhrs="23"
 for vhr in $vhrs; do
    for model in ${models}; do
 
-      qsub -v cyc=$vhr ${HOMEevs}/ecf/scripts/cam/stats/jevs_${model}_radar_stats.ecf
+      qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/stats/jevs_${model}_radar_stats.sh
       sleep 5
 
 

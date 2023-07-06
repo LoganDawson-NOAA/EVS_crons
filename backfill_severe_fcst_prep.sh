@@ -6,18 +6,28 @@
 ###########################################################
 
 now=`date -u +%Y%m%d%H`
-hh=`echo $now | cut -c 9-10`
 
 mkdir -p /lfs/h2/emc/ptmp/${USER}/cron.out
 cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-HOMEevs=/lfs/h2/emc/vpppg/save/logan.dawson/EVS
+HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
-export IDATE=20230603
+
+# Get the number of arguments.
+NARGS=$#
+ARGS=("$@")
+
+# Read report date from command line, if provided (YYYYMMDD)
+if [[ ${NARGS} -eq 1 ]]; then
+   export IDATE=$1
+else
+   export IDATE=20230620
+fi
  
 models="namnest hrrr hireswfv3 hireswarw hireswarwmem2 rrfs href"
+models="href"
 
 for model in ${models}; do
 
@@ -28,11 +38,11 @@ for model in ${models}; do
    fi
 
    for hh in $hrs; do
-      qsub -v cyc=$hh ${HOMEevs}/ecf/scripts/cam/prep/jevs_${model}_severe_prep.ecf
-      sleep 15
+      qsub -v cyc=$hh ${HOMEevs}/dev/drivers/scripts/cam/prep/jevs_${model}_severe_prep.sh
+      sleep 5
    done
 
-   sleep 30
+ # sleep 30
 
 done
 

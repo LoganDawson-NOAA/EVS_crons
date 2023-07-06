@@ -6,23 +6,16 @@
 ###########################################################
 
 now=`date -u +%Y%m%d%H`
-hh=`echo $now | cut -c 9-10`
+vhr=`echo $now | cut -c 9-10`
 
 mkdir -p /lfs/h2/emc/ptmp/${USER}/cron.out
 cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-if [ $hh -lt 12 ]; then
-   vhr=00
-elif [ $hh -ge 12 ]; then
-   vhr=12
-else
-   echo "cyc will not be defined correctly. Exiting."
-   exit
-fi
+HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/scripts/cam/prep/jevs_hireswarw_severe_prep.ecf
+qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/plots/jevs_cam_radar_plots.sh
 
 exit
 

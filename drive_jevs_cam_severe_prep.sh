@@ -13,7 +13,9 @@ cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/EVS/ecf/scripts/cam/prep/jevs_cam_severe_prep.ecf
+HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
+
+qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/prep/jevs_cam_severe_prep.sh
 
 exit
 

@@ -21,7 +21,7 @@ models="hireswarw hireswarwmem2 hireswfv3 href hrrr namnest rrfs"
 
 for model in ${models}; do
 
-   qsub -v cyc=$vhr ${HOMEevs}/ecf/scripts/cam/stats/jevs_${model}_severe_stats.ecf
+   qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/stats/jevs_${model}_severe_stats.sh
 
    sleep 60
 

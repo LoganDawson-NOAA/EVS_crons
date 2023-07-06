@@ -13,11 +13,13 @@ cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
+HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
+
 models="rrfs"
 
 for model in ${models}; do
 
-   qsub -v cyc=$vhr /lfs/h2/emc/vpppg/save/logan.dawson/github_wkspc/radar_svr_stats_EVS/ecf/scripts/cam/stats/jevs_${model}_radar_stats.ecf
+   qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/stats/jevs_${model}_radar_stats.sh
 
    sleep 60
 

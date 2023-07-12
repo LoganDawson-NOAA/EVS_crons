@@ -27,6 +27,7 @@ else
 fi
  
 models="namnest hrrr hireswfv3 hireswarw hireswarwmem2 rrfs href"
+models="namnest hrrr hireswfv3 hireswarw hireswarwmem2 rrfs"
 models="href"
 
 for model in ${models}; do
@@ -38,6 +39,7 @@ for model in ${models}; do
    fi
 
    for hh in $hrs; do
+      echo "submitting jevs_${model}_severe_prep.sh for ${hh}Z $IDATE cycle"
       qsub -v cyc=$hh ${HOMEevs}/dev/drivers/scripts/cam/prep/jevs_${model}_severe_prep.sh
       sleep 5
    done

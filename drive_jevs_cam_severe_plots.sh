@@ -15,7 +15,15 @@ module reset
 
 HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
-qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/plots/jevs_cam_radar_plots.sh
+LINE_TYPES="nbrcnt nbrctc pstd"
+
+for x in ${LINE_TYPES}; do
+
+   echo "submitting jevs_cam_severe_plots.sh for ${x} linetype at $now"
+   qsub -v cyc=$vhr,LINE_TYPE=$x ${HOMEevs}/dev/drivers/scripts/cam/plots/jevs_cam_severe_plots.sh
+   sleep 5
+
+done
 
 exit
 

@@ -8,12 +8,13 @@
 set -x
 
 now=`date -u +%Y%m%d%H`
-vhr=`echo $now | cut -c 9-10`
+hh=`echo $now | cut -c 9-10`
+
+PDYm1=`$NDATE -24 ${now} | cut -c 1-8`
 
 mkdir -p /lfs/h2/emc/ptmp/${USER}/cron.out
 cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
-module reset
 
 HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
@@ -46,7 +47,8 @@ fi
 
 for model in ${models}; do
 
-   qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/stats/jevs_${model}_severe_prep.sh
+   echo "submitting jevs_${model}_severe_prep.sh for ${vhr}Z $PDYm1 cycle"
+   qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/prep/jevs_${model}_severe_prep.sh
 
    sleep 60
 

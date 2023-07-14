@@ -16,13 +16,17 @@ module reset
 HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
 LINE_TYPES="nbrcnt nbrctc pstd"
+LINE_TYPES="nbrcnt nbrctc"
+EVAL_PERIODS="PAST31DAYS PAST90DAYS"
 
 for x in ${LINE_TYPES}; do
+for y in ${EVAL_PERIODS}; do
 
-   echo "submitting jevs_cam_severe_plots.sh for ${x} linetype at $now"
-   qsub -v cyc=$vhr,LINE_TYPE=$x ${HOMEevs}/dev/drivers/scripts/cam/plots/jevs_cam_severe_plots.sh
+   echo "submitting jevs_cam_severe_plots.sh for ${x} linetype over ${y} at $now"
+   qsub -v cyc=$vhr,LINE_TYPE=$x,EVAL_PERIOD=$y ${HOMEevs}/dev/drivers/scripts/cam/plots/jevs_cam_severe_plots.sh
    sleep 5
 
+done
 done
 
 exit

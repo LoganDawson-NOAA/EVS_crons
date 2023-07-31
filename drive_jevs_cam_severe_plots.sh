@@ -17,7 +17,7 @@ HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
 LINE_TYPES="nbrcnt nbrctc pstd"
 LINE_TYPES="nbrcnt nbrctc"
-EVAL_PERIODS="PAST31DAYS PAST90DAYS"
+EVAL_PERIODS="LAST31DAYS LAST90DAYS"
 
 for x in ${LINE_TYPES}; do
 for y in ${EVAL_PERIODS}; do

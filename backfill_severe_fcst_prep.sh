@@ -27,8 +27,6 @@ else
 fi
  
 models="namnest hrrr hireswfv3 hireswarw hireswarwmem2 rrfs href"
-models="namnest hrrr hireswfv3 hireswarw hireswarwmem2 rrfs"
-models="href"
 
 for model in ${models}; do
 
@@ -37,6 +35,7 @@ for model in ${models}; do
    else
       hrs="00 12"
    fi
+   hrs="12"
 
    for hh in $hrs; do
       echo "submitting jevs_${model}_severe_prep.sh for ${hh}Z $IDATE cycle"

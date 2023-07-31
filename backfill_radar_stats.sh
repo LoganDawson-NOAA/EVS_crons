@@ -16,12 +16,11 @@ module reset
 HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
 models="hireswarw hireswarwmem2 hireswfv3 href hrrr namnest rrfs"
-models="href"
 
 
-export VDATE=20230612
+export VDATE=20230711
 vhrs="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
-vhrs="23"
+vhrs="20"
 
 for vhr in $vhrs; do
    for model in ${models}; do

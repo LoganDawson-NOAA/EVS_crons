@@ -17,11 +17,11 @@ module reset
 
 HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
 
-models="hireswarw hireswarwmem2 hireswfv3 href hrrr namnest rrfs"
+models="hireswarw hireswarwmem2 hireswfv3 href hrrr namnest"
 
 for model in ${models}; do
 
-   qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/stats/jevs_${model}_severe_stats.sh
+   qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/stats/jevs_cam_${model}_severe_stats.sh
 
    sleep 60
 

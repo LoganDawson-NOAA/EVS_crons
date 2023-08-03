@@ -48,7 +48,7 @@ fi
 for model in ${models}; do
 
    echo "submitting jevs_${model}_severe_prep.sh for ${vhr}Z $PDYm1 cycle"
-   qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/prep/jevs_${model}_severe_prep.sh
+   qsub -v cyc=$vhr ${HOMEevs}/dev/drivers/scripts/cam/prep/jevs_cam_${model}_severe_prep.sh
 
    sleep 60
 

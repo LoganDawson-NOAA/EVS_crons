@@ -15,7 +15,7 @@ cd /lfs/h2/emc/ptmp/${USER}/cron.out
 
 module reset
 
-HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS
+HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
 
 models="hireswarw hireswarwmem2 hireswfv3 href hrrr namnest"
 

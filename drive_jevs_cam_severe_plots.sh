@@ -23,7 +23,7 @@ for x in ${LINE_TYPES}; do
 for y in ${EVAL_PERIODS}; do
 
    echo "submitting jevs_cam_severe_plots.sh for ${x} linetype over ${y} at $now"
-   qsub -v cyc=$vhr,LINE_TYPE=$x,EVAL_PERIOD=$y ${HOMEevs}/dev/drivers/scripts/cam/plots/jevs_cam_severe_plots.sh
+   qsub -v LINE_TYPE=$x,EVAL_PERIOD=$y ${HOMEevs}/dev/drivers/scripts/cam/plots/jevs_cam_severe_plots.sh
    sleep 5
 
 done
